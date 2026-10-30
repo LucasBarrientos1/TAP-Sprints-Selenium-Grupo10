@@ -32,10 +32,10 @@ jobs:
       - name: Instalar dependencias
         run: pip install -r requirements.txt
 
-      - name: Ejecutar la suite (${{ matrix.browser }}, sin ventana, en paralelo)
+      - name: Ejecutar la suite (${{ matrix.browser }}, sin ventana)
         run: |
           mkdir -p reportes
-          pytest --browser=${{ matrix.browser }} --headless -n 2 --durations=5 \
+          pytest --browser=${{ matrix.browser }} --headless --durations=5 \
             --html=reportes/reporte-${{ matrix.browser }}.html --self-contained-html \
             --junitxml=reportes/resultados-${{ matrix.browser }}.xml
 
